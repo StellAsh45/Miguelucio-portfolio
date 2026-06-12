@@ -2,137 +2,38 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Portafolio de Miguel Angel Lucio">
+    <meta name="description" content="Formación y Habilidades de Miguel Angel Lucio">
     <meta name="author" content="Miguel Angel Lucio Guillen">
-    <title>Portafolio | Miguel Angel Lucio</title>
+    <title>Formación y Habilidades | Miguel Angel Lucio</title>
     <link rel="icon" type="image/png" href="images/icon.png">
-    <!-- Fuentes sacadas de fonts.google.com-->
-    <!-- Se seleccionaron 2 fuentes las cuales son Outfit y Rajdhani -->
-    <!-- Outfit 300 (Light),400 (Regular) y 700 (Bold) -->
-    <!-- Rajdhani 500 (Medium) y 700 (Bold) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Rajdhani:wght@500;700&display=fallback" rel="stylesheet"> <!-- Antes estaba en swap (mostrar fuente primero y cambiar a la de google), se tuvo que cambiar a fallback (carga la fuente de google sin presentar parpadeo) -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Libreria FontAwesome para iconos en el sitio mediante cdnjs -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Rajdhani:wght@500;700&display=fallback" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="formacion.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <!-- Solo la necesito para el icono Tailwind, C#-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
-    
-    <!-- Barra de navegacion -->
     <div class="contenedor-principal">
         <nav class="barra-navegacion">
             <div class="logo">MIGUEL<span>.DEV</span></div>
             <div class="links-navegacion">
-                <a href="#inicio">Inicio</a>
-                <a href="#proyectos">Proyectos</a>
-                <a href="#formacion">Experiencia y formación</a>
-                <a href="#habilidades">Habilidades</a>
-                <a href="#contacto">Contacto</a>
+                <a href="home.html">Inicio</a>
+                <a href="proyectos.html">Proyectos</a>
+                <a href="formacion.html" style="color: var(--primario);">Formación y Habilidades</a>
+                <a href="contacto.html">Contacto</a>
             </div>
         </nav>
 
-        <!-- Acerca de  mi-->
-        <header id="inicio" class="inicio">
-            <div class="inicio-contenido">
-                <div class="inicio-texto">
-                    <h3>Hola, soy</h3>
-                    <h1>Miguel Ángel<br><span class="texto-neon">Lucio Guillén</span></h1>
-                    <p class="rol">Ingeniero de Sistemas en Formación & Desarrollador</p>
-                    <p class="descripcion">
-                        Estudiante de 8° semestre de ingeniería de sistemas con muchas ganas de aprender y apasionado por la creación de soluciones tecnológicas
-                        innovadoras y el análisis de datos. 
-                        Transformando ideas en realidad digital.
-                    </p>
-                    <div class="inicio-botones">
-                        <a href="#contacto" class="btn btn-contacto">Contáctame</a>
-                        <a href="#proyectos" class="btn btn-trabajo">Ver Trabajo</a>
-                    </div>
-                </div>
-                <div class="inicio-imagen">
-                    <div class="imagen-frame">
-                        <img src="images/FotoHV.jpeg" alt="Miguel Angel Lucio">
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Seccion proyectos -->
-        <section id="proyectos" class="seccion proyectos">
-            <h2 class="titulo-seccion">Mis <span class="resaltar">Proyectos</span></h2>
-            <div class="matriz-proyectos">
-
-                <!-- Proyecto 1 -->
-                <div class="tarjeta-proyecto">
-                    <a href="https://github.com/AIgobernance/Proyecto-Gestion"></a>
-                    <div class="imagen-tarjeta">
-                        <img src="images/AIgovernance.png" alt="AI Governance Evaluator">
-                    </div>
-                    <div class="contenido-tarjeta">
-                        <h3>AI Governance Evaluator</h3>
-                        <p> Aplicativo web que facilita la evaluación de cumplimiento ético y técnico de los sistemas de IA, ofreciendo 
-                            una hoja de ruta práctica y personalizada para implementar buenas prácticas de gobernanza con ayuda de N8N.</p>
-                        <div class="tags">
-                            <span>PHP</span>
-                            <span>Laravel</span>
-                            <span>Node.js</span>
-                            <span>JavaScript</span>
-                            <span>SQL Server</span>
-                            <span>React</span>
-                            <span>Vite</span>
-                            <span>Tailwind</span>
-                        </div>
-                        <a href="https://github.com/AIgobernance/Proyecto-Gestion"><i class="fa-brands fa-github"></i></a>
-                    </div>
-                </div>
-
-                <!-- Proyecto 2 -->
-                <div class="tarjeta-proyecto">
-                    <div class="imagen-tarjeta">
-                        <img src="images/BibliotecaVirt.png" alt="Biblioteca Virtual Personal">
-                    </div>
-                    <div class="contenido-tarjeta">
-                        <h3>Biblioteca virtual personal</h3>
-                        <p>Aplicación de escritorio en python manejando la creación de interfaces mediante Tkinter, que permite registrar y organizar libros leídos y pendientes de 
-                            lectura, mostrandolos en un catalogo y permitiendo exportar el archivo en CSV. </p>
-                        <div class="tags">
-                            <span>Python</span>
-                            <span>JSON</span>
-                        </div>
-                        <a href="https://github.com/StellAsh45/Biblioteca-Virtual-Personal"><i class="fa-brands fa-github"></i></a>
-                    </div>
-                </div>
-
-                <!-- Proyecto 3 -->
-                <div class="tarjeta-proyecto">
-                    <div class="imagen-tarjeta">
-                        <img src="images/SalasComputo.png" alt="Administracion salas de Computo">
-                    </div>
-                    <div class="contenido-tarjeta">
-                        <h3>Sistema de gestión de salas de cómputo</h3>
-                        <p>Aplicación web en ASP.NET Core MVC para la administración de las salas de sistemas de la Universidad Santiago de Cali que 
-                            permite el control de salas, equipos y usuarios según sus roles, con un flujo de solicitudes, reportes de daños y gestión del estado de ocupación.</p>
-                        <div class="tags">
-                            <span>C#</span>
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <a href="https://github.com/StellAsh45/Administracion_Salas_Computo"><i class="fa-brands fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div style="padding-top: 100px;"></div>
 
         <!-- Seccion de formacion, idiomas y experiencia laboral -->
         <section id="formacion" class="seccion dividir-seccion">
             
             <!-- Seccion formacion -->
             <div class="educacion">
-                <h2 class="titulo-seccion">Formación <button class="boton-añadir" onclick="abrirModal('formacion')">
-                    <i class="fa-solid fa-plus"></i></button></h2>
+                <h2 class="titulo-seccion">Formación</h2>
                 <div class="linea-tiempo" id="lista-formacion">
                     <div class="items-linea">
                         <span class="año">2022 - Presente</span>
@@ -159,8 +60,7 @@
             
             <!-- Seccion idiomas -->
             <div class="idiomas">
-                <h2 class="titulo-seccion">Idiomas <button class="boton-añadir" onclick="abrirModal('idioma')">
-                    <i class="fa-solid fa-plus"></i></button></h2>
+                <h2 class="titulo-seccion">Idiomas</h2>
                 <div class="contenedor-idiomas" id="lista-idiomas">
                     <div class="tarjeta-idiomas">
                         <div class="informacion-idiomas">
@@ -209,15 +109,13 @@
 
             <!-- Seccion experiencia laboral -->
             <div class="experiencia">
-                <h2 class="titulo-seccion">Experiencia laboral <button class="boton-añadir" onclick="abrirModal('experiencia')">
-                    <i class="fa-solid fa-plus"></i></button></h2>
+                <h2 class="titulo-seccion">Experiencia laboral</h2>
                 <div class="linea-tiempo" id="lista-experiencia">
                     <div class="items-linea">
                         <span class="año">2021 - 2022</span>
                         <h3>Auxiliar Administrativo</h3>
                         <p>Colegio Americas Unidas</p>
-                        <span class="descripcion-laboral">Organización y clasificación de archivos académicos,control documental, apoyo en procesos de matrícula y 
-                            asistencia en tareas administrativas generales.</span>
+                        <span class="descripcion-laboral">Organización y clasificación de archivos académicos, control documental, apoyo en procesos de matrícula y asistencia en tareas administrativas generales.</span>
                     </div>
                 </div>
             </div>
@@ -225,8 +123,7 @@
 
         <!-- Seccion habilidades -->
         <section id="habilidades" class="seccion habilidades">
-            <h2 class="titulo-seccion">Habilidades <span class="resaltar">Técnicas</span> <button class="boton-añadir" onclick="abrirModal('habilidad')">
-                    <i class="fa-solid fa-plus"></i></button></h2></h2>
+            <h2 class="titulo-seccion">Habilidades <span class="resaltar">Técnicas</span></h2>
 
             <!-- Frontend -->
             <h3 class="titulo-tecnologias"><i class="fa-solid fa-code"></i> Frontend</h3>
@@ -311,36 +208,18 @@
             </div>
         </section>
 
-        <!-- Modal para añadir elementos -->
-        <div id="modal-agregar" class="modal">
-            <div class="modal-contenido">
-                <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
-                <h2 id="modal-titulo">Añadir Nuevo Elemento</h2>
-                <form id="form-agregar">
-                    <div id="campos-dinamicos">
-                        <!-- Aqui se supone que iran los campos -->
-                    </div>
-                    <button type="submit" class="boton-guardar">Guardar</button>
-                </form>
-            </div>
-        </div>
+
 
         <!-- Pie de pagina -->
-        <footer id="contacto" class="pie-pagina">
+        <footer class="pie-pagina" style="padding: 20px; text-align: center;">
             <div class="contenido-pie">
-                <h2>¿Trabajamos juntos?</h2>
-                <p>Estoy disponible para nuevos proyectos y colaboraciones.</p>
-                <div class="redes-sociales">
-                    <a href="https://www.linkedin.com/in/miguel-angel-lucio-guillen-11750214b/">
-                        <i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/StellAsh45">
-                        <i class="fa-brands fa-github"></i></a>
-                    <a href="mailto:mlucioguillen@gmail.com?subject=Contacto%20desde%20Portafolio">
-                        <i class="fa-solid fa-envelope"></i></a>
-                    <a href="https://wa.me/3053029631?text=Hola%20Miguel,%20vi%20tu%20portafolio">
-                        <i class="fa-brands fa-whatsapp"></i></a>
+                <div class="redes-sociales" style="margin: 10px 0;">
+                    <a href="https://www.linkedin.com/in/miguel-angel-lucio-guillen-11750214b/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/StellAsh45"><i class="fa-brands fa-github"></i></a>
+                    <a href="mailto:mlucioguillen@gmail.com?subject=Contacto%20desde%20Portafolio"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://wa.me/3053029631?text=Hola%20Miguel,%20vi%20tu%20portafolio"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
-                <div class="derechos-autor">
+                <div class="derechos-autor" style="margin-top: 10px;">
                     &copy; 2026 Miguel Angel Lucio.
                 </div>
             </div>

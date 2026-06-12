@@ -1,212 +1,175 @@
-let tipoActual = ''; /* Esto es para guardar el tipo de elemento que se va a agregar */
+// Generador de Fondo de Estrellas y Sparkles
+document.addEventListener('DOMContentLoaded', () => {
+    // Crear el contenedor principal del fondo
+    const bgContainer = document.createElement('div');
+    bgContainer.className = 'fondo-estrellas';
 
-function abrirModal(tipo) {
-    const modal = document.getElementById('modal-agregar');
-    const titulo = document.getElementById('modal-titulo');
-    const container = document.getElementById('campos-dinamicos');
+    // Crear las 3 capas de estrellas
+    const capa1 = document.createElement('div');
+    capa1.className = 'capa-estrellas pequena';
+    const capa2 = document.createElement('div');
+    capa2.className = 'capa-estrellas mediana';
+    const capa3 = document.createElement('div');
+    capa3.className = 'capa-estrellas grande';
 
-    tipoActual = tipo;
-    modal.style.display = 'block';
-
-    let camposHTML = '';
-
-    if (tipo === 'formacion') {
-        titulo.innerText = 'Agregar Formación';
-        camposHTML = `
-            <div class="campo-formulario">
-                <label>Año</label>
-                <input type="text" id="anio" required placeholder="Ej: 2023">
-            </div>
-            <div class="campo-formulario">
-                <label>Título</label>
-                <input type="text" id="titulo" required placeholder="Ej: Curso de... ">
-            </div>
-            <div class="campo-formulario">
-                <label>Institución</label>
-                <input type="text" id="institucion" required placeholder="Ej: USC">
-            </div>
-        `;
-    } else if (tipo === 'experiencia') {
-        titulo.innerText = 'Agregar Experiencia';
-        camposHTML = `
-            <div class="campo-formulario">
-                <label>Año</label>
-                <input type="text" id="anio" required placeholder="Ej: 2023">
-            </div>
-            <div class="campo-formulario">
-                <label>Cargo</label>
-                <input type="text" id="cargo" required placeholder="Ej: Desarrollador Jr">
-            </div>
-            <div class="campo-formulario">
-                <label>Empresa</label>
-                <input type="text" id="empresa" required placeholder="Ej: Empresa XYZ">
-            </div>
-            <div class="campo-formulario">
-                <label>Descripción</label>
-                <textarea id="descripcion" class="campo-descripcion" rows="3" placeholder="Descripción de tareas..."></textarea>
-            </div>
-        `;
-    } else if (tipo === 'idioma') {
-        titulo.innerText = 'Agregar Idioma';
-        camposHTML = `
-            <div class="campo-formulario">
-                <label>Idioma</label>
-                <input type="text" id="idioma" required placeholder="Ej: Alemán">
-            </div>
-            <div class="campo-formulario">
-                <label>Nivel</label>
-                <select id="nivel">
-                    <option value="Principiante (A1)">Principiante (A1)</option>
-                    <option value="Básico (A2)">Básico (A2)</option>
-                    <option value="Intermedio (B1)">Intermedio (B1)</option>
-                    <option value="Intermedio Alto (B2)">Intermedio Alto (B2)</option>
-                    <option value="Avanzado (C1)">Avanzado (C1)</option>
-                    <option value="Nativo (C2)">Nativo (C2)</option>
-                </select>
-            </div>
-        `;
-    } else if (tipo === 'habilidad') {
-        titulo.innerText = 'Agregar Habilidad';
-        camposHTML = `
-            <div class="campo-formulario">
-            <label>Tecnología</label>
-                <input type="text" id="nombre" required placeholder="Ej: Docker">
-            </div>
-            <div class="campo-formulario">
-                <label>Tipo</label>
-                <select id="categoria">
-                    <option value="frontend">Frontend</option>
-                    <option value="backend">Backend</option>
-                </select>
-            </div>
-        `;
+    // Función para generar sombras (estrellas) aleatorias
+    function generarEstrellas(cantidad) {
+        let sombras = [];
+        for (let i = 0; i < cantidad; i++) {
+            const x = Math.floor(Math.random() * 120) - 10; // -10 a 110vw para cubrir bordes
+            const y = Math.floor(Math.random() * 120) - 10; // -10 a 110vh
+            const opacidad = Math.random() * 0.5 + 0.5; // Opacidad aleatoria para que brillen distinto
+            // Alternar colores entre blanco, cian claro y morado claro para el efecto premium
+            const colores = [`rgba(255, 255, 255, ${opacidad})`, `rgba(0, 243, 255, ${opacidad * 0.8})`, `rgba(188, 19, 254, ${opacidad * 0.8})`];
+            const color = colores[Math.floor(Math.random() * colores.length)];
+            sombras.push(`${x}vw ${y}vh ${color}`);
+        }
+        return sombras.join(', ');
     }
 
-    container.innerHTML = camposHTML;
-}
+    // Asignar las sombras generadas a cada capa (ahora más cantidad)
+    capa1.style.boxShadow = generarEstrellas(250); // 400 estrellas pequeñas
+    capa2.style.boxShadow = generarEstrellas(150);  // 150 estrellas medianas
+    capa3.style.boxShadow = generarEstrellas(80);  // 70 estrellas grandes
 
-/* Función para cerrar el modal */ 
-function cerrarModal() {
-    document.getElementById('modal-agregar').style.display = 'none';
-}
+    // Ensamblar el DOM
+    bgContainer.appendChild(capa1);
+    bgContainer.appendChild(capa2);
+    bgContainer.appendChild(capa3);
 
-/* Función para guardar el nuevo elemento */
-window.onclick = function (event) {
-    if (event.target == document.getElementById('modal-agregar')) {
-        cerrarModal();
+    // Función para crear estrellas fugaces
+    function crearEstrellaFugaz() {
+        const estrellaFugaz = document.createElement('div');
+        estrellaFugaz.className = 'estrella-fugaz';
+        // Posición aleatoria en toda la pantalla
+        estrellaFugaz.style.top = Math.floor(Math.random() * 100) + 'vh';
+        estrellaFugaz.style.left = Math.floor(Math.random() * 100) + 'vw';
+        // Retraso aleatorio
+        estrellaFugaz.style.animationDelay = Math.random() * 2 + 's';
+        
+        // Colores aleatorios (Cian, Morado o Blanco)
+        const coloresFugaces = [
+            { // Cian
+                bg: 'linear-gradient(90deg, rgba(0,243,255,1) 0%, rgba(0,243,255,0.5) 50%, rgba(0,0,0,0) 100%)',
+                shadow: 'drop-shadow(0 0 10px rgba(0, 243, 255, 1))'
+            },
+            { // Morado
+                bg: 'linear-gradient(90deg, rgba(188,19,254,1) 0%, rgba(188,19,254,0.5) 50%, rgba(0,0,0,0) 100%)',
+                shadow: 'drop-shadow(0 0 10px rgba(188, 19, 254, 1))'
+            },
+            { // Blanco brillante
+                bg: 'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 50%, rgba(0,0,0,0) 100%)',
+                shadow: 'drop-shadow(0 0 10px rgba(255, 255, 255, 1))'
+            }
+        ];
+        const tema = coloresFugaces[Math.floor(Math.random() * coloresFugaces.length)];
+        estrellaFugaz.style.background = tema.bg;
+        estrellaFugaz.style.filter = tema.shadow;
+
+        bgContainer.appendChild(estrellaFugaz);
+
+        // Removerla y crear una nueva después de un tiempo más corto
+        setTimeout(() => {
+            estrellaFugaz.remove();
+            crearEstrellaFugaz();
+        }, 3000 + Math.random() * 2000); // Más frecuente (entre 3 y 5 segundos)
     }
-}
 
- /* Submit del formulario para agregar un nuevo elemento */
-document.getElementById('form-agregar').addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const id = Date.now().toString(); /* Genera un ID único basado en la fecha actual */
-    let data = { id, tipo: tipoActual }; /* Objeto base con el ID y el tipo del elemento */
-
-    if (tipoActual === 'formacion') {
-        data.anio = document.getElementById('anio').value;
-        data.titulo = document.getElementById('titulo').value;
-        data.institucion = document.getElementById('institucion').value;
-    } else if (tipoActual === 'experiencia') {
-        data.anio = document.getElementById('anio').value;
-        data.cargo = document.getElementById('cargo').value;
-        data.empresa = document.getElementById('empresa').value;
-        data.descripcion = document.getElementById('descripcion') ? document.getElementById('descripcion').value : '';
-    } else if (tipoActual === 'idioma') {
-        data.idioma = document.getElementById('idioma').value;
-        data.nivelTexto = document.getElementById('nivel').value;
-        const map = {
-            'Principiante (A1)': 1,
-            'Básico (A2)': 2,
-            'Intermedio (B1)': 3,
-            'Intermedio Alto (B2)': 4,
-            'Avanzado (C1)': 5,
-            'Nativo (C2)': 6
-        };
-        data.nivel = map[data.nivelTexto] || 1;
-    } else if (tipoActual === 'habilidad') {
-        data.nombre = document.getElementById('nombre').value;
-        data.categoria = document.getElementById('categoria').value;
+    // Crear más estrellas fugaces simultáneas
+    for (let i = 0; i < 6; i++) {
+        setTimeout(crearEstrellaFugaz, i * 800);
     }
 
-    renderizarItem(data); /* Renderiza el nuevo elemento en la página */
-    cerrarModal();
-    e.target.reset(); /* Limpia el formulario después de agregar el elemento */
+    // Insertarlo al principio del body para que quede de fondo en todas las páginas
+    document.body.prepend(bgContainer);
 });
 
-/* Función para renderizar un nuevo elemento en la página */
-function renderizarItem(data) {
-    let container;
-    let camposHTML = '';
+// Lógica del Carrusel de Proyectos (Si existe en la página)
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('track-proyectos');
+    if (!track) return;
 
-    if (data.tipo === 'formacion') {
-        container = document.getElementById('lista-formacion');
-        camposHTML = `
-            <div class="items-linea" id="${data.id}">
-                <button class="boton-borrar" onclick="eliminarElemento('${data.id}')"><i class="fa-solid fa-trash"></i></button>
-                <span class="año">${data.anio}</span>
-                <h3>${data.titulo}</h3>
-                <p>${data.institucion}</p>
-            </div>
-        `;
-    } else if (data.tipo === 'experiencia') {
-        container = document.getElementById('lista-experiencia');
-        camposHTML = `
-            <div class="items-linea" id="${data.id}">
-                <button class="boton-borrar" onclick="eliminarElemento('${data.id}')"><i class="fa-solid fa-trash"></i></button>
-                <span class="año">${data.anio}</span>
-                <h3>${data.cargo}</h3>
-                <p>${data.empresa}</p>
-                <span class="descripcion-laboral">${data.descripcion}</span>
-            </div>
-        `;
-    } else if (data.tipo === 'idioma') {
-        container = document.getElementById('lista-idiomas');
-        let circulos = '';
-        for (let i = 0; i < 6; i++) {
-            circulos += `<span class="circulo ${i < data.nivel ? 'activo' : ''}"></span>`;
-        }
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
 
-        camposHTML = `
-            <div class="tarjeta-idiomas" id="${data.id}">
-                <button class="boton-borrar" onclick="eliminarElemento('${data.id}')"><i class="fa-solid fa-trash"></i></button>
-                <div class="informacion-idiomas">
-                    <h3>${data.idioma}</h3>
-                    <span class="nivel">${data.nivelTexto}</span>
-                </div>
-                <div class="nivel-circulo">
-                    ${circulos}
-                </div>
-            </div>
-        `;
-    } else if (data.tipo === 'habilidad') {
-        container = document.getElementById(data.categoria === 'frontend' ? 'lista-habilidades-frontend' : 'lista-habilidades-backend');
-        let iconClass = 'fa-solid fa-code';
+    let autoSlideInterval;
+    const AUTO_SLIDE_DELAY = 4000;
+    let isTransitioning = false;
 
-        camposHTML = `
-            <div class="tarjeta-tecnologias" id="${data.id}">
-                <button class="boton-borrar" onclick="eliminarElemento('${data.id}')"><i class="fa-solid fa-trash"></i></button>
-                <div class="icono-tecnologias">
-                    <i class="${iconClass}"></i>
-                </div>
-                <span class="nombre-tecnologia">${data.nombre}</span>
-            </div>
-        `;
+    function getItemWidth() {
+        const item = track.querySelector('.carrusel-item');
+        if (!item) return 0;
+        return item.getBoundingClientRect().width + 30;
     }
 
-    if (container) {
-        const temp = document.createElement('div');
-        temp.innerHTML = camposHTML.trim();
-        container.appendChild(temp.firstChild);
-    }
-}
- /* Función para eliminar un elemento de la lista con mensaje de confirmacion */
-function eliminarElemento(id) {
-    if (!confirm('¿Estás seguro de eliminar este elemento?')) return;
+    function moveNext() {
+        if (isTransitioning) return;
+        const items = track.querySelectorAll('.carrusel-item');
+        if (items.length === 0) return;
 
-    const element = document.getElementById(id);
-    if (element) {
-        element.remove();
+        isTransitioning = true;
+        const width = getItemWidth();
+
+        track.style.transition = 'transform 0.5s ease-in-out';
+        track.style.transform = `translateX(-${width}px)`;
+
+        setTimeout(() => {
+            track.style.transition = 'none';
+            const firstItem = track.querySelector('.carrusel-item');
+            track.appendChild(firstItem);
+
+            track.style.transform = 'translateX(0)';
+            isTransitioning = false;
+        }, 500);
     }
-}
+
+    function movePrev() {
+        if (isTransitioning) return;
+        const items = track.querySelectorAll('.carrusel-item');
+        if (items.length === 0) return;
+
+        isTransitioning = true;
+        const width = getItemWidth();
+
+        const lastItem = items[items.length - 1];
+        track.prepend(lastItem);
+
+        track.style.transition = 'none';
+        track.style.transform = `translateX(-${width}px)`;
+
+        void track.offsetWidth;
+
+        track.style.transition = 'transform 0.5s ease-in-out';
+        track.style.transform = 'translateX(0)';
+
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 500);
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(moveNext, AUTO_SLIDE_DELAY);
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    btnNext.addEventListener('click', () => {
+        moveNext();
+        resetAutoSlide();
+    });
+
+    btnPrev.addEventListener('click', () => {
+        movePrev();
+        resetAutoSlide();
+    });
+
+    track.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+    track.addEventListener('mouseleave', startAutoSlide);
+
+    setTimeout(() => {
+        startAutoSlide();
+    }, 100);
+});

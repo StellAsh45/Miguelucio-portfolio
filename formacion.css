@@ -1,0 +1,217 @@
+/* Formacion, idiomas y experiencia laboral */
+.dividir-seccion {
+    display: flex;
+    gap: 50px;
+}
+
+.dividir-seccion h2 {
+    font-size: 29px;
+}
+
+.educacion,
+.idiomas,
+.experiencia {
+    width: 31%;
+}
+
+.items-linea {
+    border-left: 3px solid var(--primario);
+    padding-left: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    transition: 0.3s;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: var(--fondo-tarjetas);
+}
+
+.items-linea::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--secundario);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--secundario);
+    transition: 0.3s;
+}
+
+.items-linea .año {
+    color: var(--primario);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.items-linea:hover {
+    transform: translateY(-5px);
+    border-color: var(--secundario);
+    box-shadow: 0 3px 20px rgba(188, 19, 254, 0.2);
+}
+
+.items-linea:hover::before {
+    transform: scale(1.5);
+    background: var(--primario);
+    box-shadow: 0 0 15px var(--primario);
+}
+
+.contenedor-idiomas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tarjeta-idiomas {
+    border-left: 3px solid var(--secundario);
+    padding: 7px 10px 6px 25px;
+    margin-bottom: 19px;
+    position: relative;
+    transition: 0.3s;
+    border-radius: 8px;
+    background-color: var(--fondo-tarjetas);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.tarjeta-idiomas::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--primario);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primario);
+    transition: 0.3s;
+}
+
+.tarjeta-idiomas:hover {
+    transform: translateY(-5px);
+    border-color: var(--primario);
+    box-shadow: 0 3px 20px rgb(8, 243, 255, 0.2);
+}
+
+.tarjeta-idiomas:hover::before {
+    transform: scale(1.5);
+    background: var(--secundario);
+    box-shadow: 0 0 15px var(--secundario);
+}
+
+.informacion-idiomas h3 {
+    font-size: 18px;
+    color: var(--secundario);
+    margin-bottom: 2px;
+}
+
+.informacion-idiomas .nivel {
+    font-size: 15px;
+    color: var(--texto-secundario);
+}
+
+.nivel-circulo {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+}
+
+.circulo {
+    width: 14px;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    transition: 0.4s ease;
+}
+
+.tarjeta-idiomas:hover .circulo.activo {
+    background: var(--primario);
+    box-shadow: 0 0 12px var(--primario);
+}
+
+.descripcion-laboral {
+    font-size: 14px;
+    color: var(--texto-secundario);
+    margin-top: 10px;
+    text-align: justify;
+}
+
+/* Habilidades y tecnologias */
+.habilidades {
+    padding: 20px 50px;
+}
+
+.titulo-tecnologias {
+    font-size: 24px;
+    color: var(--texto-principal);
+    margin: 20px 0 40px 0;
+    padding-left: 15px;
+    border-left: 4px solid var(--secundario);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-transform: uppercase;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+}
+
+.titulo-tecnologias i {
+    color: var(--primario);
+    font-size: 20px;
+}
+
+.tecnologias-matriz {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.tarjeta-tecnologias {
+    background: rgba(15, 15, 37, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.tarjeta-tecnologias:hover {
+    transform: translateY(-10px);
+    background: linear-gradient(135deg, rgba(8, 243, 255, 0.4), rgba(188, 19, 254, 0.4));
+}
+
+.icono-tecnologias {
+    font-size: 48px;
+    color: var(--texto-secundario);
+    transition: 0.4s;
+}
+
+.tarjeta-tecnologias:hover .icono-tecnologias {
+    color: var(--primario);
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.6));
+}
+
+.tarjeta-tecnologias:nth-child(2n):hover .icono-tecnologias {
+    color: var(--secundario);
+    filter: drop-shadow(0 0 10px rgba(188, 19, 254, 0.6));
+}
+
+.nombre-tecnologia {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--texto-principal);
+    letter-spacing: 1px;
+}

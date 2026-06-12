@@ -1,0 +1,48 @@
+/* contacto.css */
+#contacto-principal {
+    text-align: center;
+    min-height: 60vh;
+}
+
+#contacto-principal .titulo-seccion {
+    font-size: 50px;
+}
+
+.subtitulo-contacto {
+    font-size: 20px;
+    color: var(--texto-secundario);
+    margin-bottom: 50px;
+}
+
+.redes-sociales-grandes {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.redes-sociales-grandes a {
+    font-size: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.redes-sociales-grandes a:hover {
+    transform: translateY(-10px);
+    background: rgba(8, 243, 255, 0.1);
+    border-color: var(--primario);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+}
+
+.redes-sociales-grandes .linkedin-icon { color: #0077b5; }
+.redes-sociales-grandes .github-icon { color: white; }
+.redes-sociales-grandes .email-icon { color: var(--primario); }
+.redes-sociales-grandes .whatsapp-icon { color: #25D366; }
