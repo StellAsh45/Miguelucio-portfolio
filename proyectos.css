@@ -52,11 +52,11 @@
 }
 
 .prev-btn {
-    left: -20px;
+    left: -45px;
 }
 
 .next-btn {
-    right: -20px;
+    right: -45px;
 }
 
 @media (max-width: 900px) {
@@ -117,7 +117,7 @@
 }
 
 .contenido-tarjeta p {
-    color: var(--texto-secundario);
+    color: var(--texto-principal);
     font-size: 14px;
     margin-bottom: 15px;
     text-align: justify;
@@ -155,19 +155,33 @@
     border-radius: 0;
     overflow: visible;
     max-width: 1100px;
-    transition: 0.3s;
     width: 100%;
+    /* Animación de entrada por scroll */
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.3s, opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .tarjeta-proyecto-extendida.invertida {
     flex-direction: row-reverse;
+    transform: translateX(100px);
 }
 
-.tarjeta-proyecto-extendida:hover {
+.tarjeta-proyecto-extendida.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.tarjeta-proyecto-extendida.visible:hover {
     transform: translateY(-5px);
 }
 
-.tarjeta-proyecto-extendida:hover .imagen-tarjeta-extendida {
+.tarjeta-proyecto-extendida.hover-primario:hover .contenido-tarjeta-extendida {
+    border-color: var(--primario);
+    box-shadow: 0 3px 20px rgba(0, 243, 255, 0.2);
+}
+
+.tarjeta-proyecto-extendida.hover-secundario:hover .contenido-tarjeta-extendida {
     border-color: var(--secundario);
     box-shadow: 0 3px 20px rgba(188, 19, 254, 0.2);
 }
@@ -226,7 +240,7 @@
 }
 
 .contenido-tarjeta-extendida p {
-    color: var(--texto-secundario);
+    color: var(--texto-principal);
     font-size: 16px;
     margin-bottom: 25px;
     line-height: 1.6;
@@ -247,4 +261,102 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
+}
+
+.tarjeta-clickable {
+    cursor: pointer;
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET (≤ 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+
+    /* En tablet/móvil, las flechas van arriba y abajo del carrusel */
+    .carrusel-contenedor {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .carrusel-btn {
+        top: auto;
+        transform: none;
+    }
+
+    .prev-btn {
+        left: 50%;
+        top: 10px;
+        transform: translateX(-50%);
+    }
+
+    .next-btn {
+        right: auto;
+        left: 50%;
+        bottom: 10px;
+        top: auto;
+        transform: translateX(-50%);
+    }
+
+    /* Tarjetas extendidas: apilar imagen y texto */
+    /* En móvil, ambas (normal e invertida) usan fade vertical */
+    .tarjeta-proyecto-extendida {
+        flex-direction: column;
+        opacity: 0;
+        transform: translateY(40px) !important;
+        transition: all 0.3s, opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .tarjeta-proyecto-extendida.invertida {
+        flex-direction: column;
+    }
+
+    .tarjeta-proyecto-extendida.visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    .imagen-tarjeta-extendida {
+        flex: none;
+        width: 100%;
+    }
+
+    .contenido-tarjeta-extendida {
+        padding: 25px;
+    }
+
+    .contenido-tarjeta-extendida h3 {
+        font-size: 22px;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — MÓVIL (≤ 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+
+    .lista-proyectos-extendida {
+        gap: 25px;
+    }
+
+    .contenido-tarjeta-extendida {
+        padding: 18px;
+    }
+
+    .contenido-tarjeta-extendida h3 {
+        font-size: 18px;
+    }
+
+    .contenido-tarjeta-extendida p {
+        font-size: 14px;
+    }
+
+    .botones-tarjeta {
+        flex-direction: column;
+    }
+
+    .botones-tarjeta .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
 }

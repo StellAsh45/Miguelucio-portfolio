@@ -52,6 +52,7 @@ a {
     /* Transición suave para los enlaces */
 }
 
+
 .barra-navegacion {
     display: flex;
     justify-content: space-between;
@@ -83,20 +84,24 @@ a {
 
 .links-navegacion a {
     margin-left: 30px;
-    /* Espacio entre los enlaces de navegación */
     font-size: 16px;
     font-weight: 500;
-    /* Semi-negrita */
     position: relative;
-    /* Para posicionar el efecto de subrayado */
     color: var(--texto-secundario);
-    /* Color de los enlaces de navegación */
 }
 
-.links-navegacion a:hover {
+/* Efecto Hover: Inicio y Formación (Cyan) */
+.links-navegacion a:nth-child(1):hover,
+.links-navegacion a:nth-child(3):hover {
     color: var(--primario);
     text-shadow: 0 3px 5px rgba(0, 243, 255, 0.7);
-    /* Sombra de texto para resaltar el enlace al pasar el mouse (x,y,blur)*/
+}
+
+/* Efecto Hover: Proyectos y Contacto (Morado) */
+.links-navegacion a:nth-child(2):hover,
+.links-navegacion a:nth-child(4):hover {
+    color: var(--secundario);
+    text-shadow: 0 3px 5px rgba(188, 19, 254, 0.7);
 }
 
 section,
@@ -114,7 +119,7 @@ footer.pie-pagina {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 250px 0px 0px 100px;
+    padding: 300px 0px 0px 100px;
     height: 600px;
 }
 
@@ -130,6 +135,21 @@ footer.pie-pagina {
     /* Para reducir el espacio entre las líneas del título */
     margin-bottom: 20px;
     /* Espacio debajo del título */
+}
+
+/* Animación de la imagen de inicio (Flote) */
+@keyframes floatImage {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .texto-neon {
@@ -188,6 +208,49 @@ footer.pie-pagina {
     display: flex;
     gap: 20px;
     /* Espacio entre los botones */
+}
+
+/* Animaciones de entrada (Cascada) */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.inicio-texto h3,
+.inicio-texto h1,
+.inicio-texto .rol,
+.inicio-texto .descripcion,
+.inicio-botones {
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* Retrasos en cascada para cada elemento */
+.inicio-texto h3 {
+    animation-delay: 0.1s;
+}
+
+.inicio-texto h1 {
+    animation-delay: 0.3s;
+}
+
+.inicio-texto .rol {
+    animation-delay: 0.5s;
+}
+
+.inicio-texto .descripcion {
+    animation-delay: 0.7s;
+}
+
+.inicio-botones {
+    animation-delay: 0.9s;
 }
 
 .btn {
@@ -271,7 +334,7 @@ footer.pie-pagina {
     padding: 50px max(20px, calc(50vw - 600px + 20px));
     background: #02020a;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--secundario);
 
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -418,5 +481,180 @@ footer.pie-pagina {
     100% {
         transform: rotate(-45deg) translateX(100vw);
         opacity: 0;
+    }
+}
+
+/* Animación de la imagen de inicio (Flote) */
+@keyframes floatImage {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.imagen-frame {
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    /* Aparece despues de los textos y se queda flotando de por vida */
+    animation: fadeUp 1s ease-out 1.2s forwards, floatImage 6s ease-in-out 2.2s infinite;
+}
+
+/* Animación genérica al hacer scroll */
+.scroll-fade-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+
+    /* Navbar */
+    .barra-navegacion {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .links-navegacion a {
+        margin-left: 15px;
+        font-size: 14px;
+    }
+
+    /* Hero */
+    .inicio {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 120px 30px 40px;
+        height: auto;
+        gap: 30px;
+    }
+
+    .inicio-imagen {
+        transform: none;
+        align-self: center;
+    }
+
+    .inicio-texto h1 {
+        font-size: 52px;
+    }
+
+    .inicio-texto h3 {
+        font-size: 20px;
+    }
+
+    .rol {
+        font-size: 17px;
+    }
+
+    .descripcion {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    /* Secciones */
+    .seccion {
+        padding: 20px 25px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    /* Navbar: apilar logo y links */
+    .barra-navegacion {
+        padding: 12px 15px;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .links-navegacion {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .links-navegacion a {
+        margin-left: 0;
+        font-size: 13px;
+    }
+
+    /* Hero */
+    .inicio {
+        padding: 50px 15px 30px;
+        gap: 20px;
+    }
+
+    .inicio-texto h1 {
+        font-size: 38px;
+    }
+
+    .inicio-texto h3 {
+        font-size: 17px;
+    }
+
+    .rol {
+        font-size: 15px;
+    }
+
+    .descripcion {
+        font-size: 14px;
+    }
+
+    .inicio-botones {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Foto de perfil: centrada y más pequeña */
+    .inicio-imagen {
+        transform: none !important;
+        align-self: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 40px; /* Extra margen para que el floatImage (sube 20px) no tape los botones */
+    }
+
+    .imagen-frame {
+        width: 200px;
+        height: 200px;
+        /* Restaurar ambas animaciones en móvil */
+        animation: fadeUp 1s ease-out 1.2s forwards, floatImage 6s ease-in-out 2.2s infinite;
+        margin: 0 auto;
+    }
+
+    /* Secciones */
+    .seccion {
+        padding: 15px 15px;
+    }
+
+    .titulo-seccion {
+        font-size: 28px;
+        margin-bottom: 30px;
     }
 }

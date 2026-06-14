@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portafolio de Miguel Angel Lucio">
     <meta name="author" content="Miguel Angel Lucio Guillen">
     <title>Portafolio | Miguel Angel Lucio</title>
@@ -34,7 +35,7 @@
             <div class="links-navegacion">
                 <a href="home.html" style="color: var(--primario);">Inicio</a>
                 <a href="proyectos.html">Proyectos</a>
-                <a href="formacion.html">Formación y Habilidades</a>
+                <a href="formacion.html">Formación y habilidades</a>
                 <a href="contacto.html">Contacto</a>
             </div>
         </nav>
@@ -67,16 +68,17 @@
 
         <!-- Seccion proyectos -->
         <section id="proyectos" class="seccion proyectos">
-            <h2 class="titulo-seccion">Mis <span class="resaltar">Proyectos</span></h2>
+            <h2 class="titulo-seccion scroll-fade-up">Mis <span class="resaltar">Proyectos</span></h2>
 
-            <div class="carrusel-contenedor">
+            <div class="carrusel-contenedor scroll-fade-up">
                 <button class="carrusel-btn prev-btn" id="btn-prev"><i class="fa-solid fa-chevron-left"></i></button>
 
-                <div class="carrusel-viewport" style="overflow: hidden; width: 100%;">
+                <div class="carrusel-viewport" style="overflow: hidden; width: 100%;"
+                    href="https://aigovernancevaluator.up.railway.app">
                     <div class="matriz-proyectos carrusel-track" id="track-proyectos">
                         <!-- Proyecto 1 -->
-                        <div class="tarjeta-proyecto carrusel-item">
-                            <a href="https://github.com/AIgobernance/Proyecto-Gestion"></a>
+                        <div class="tarjeta-proyecto carrusel-item tarjeta-clickable"
+                            onclick="window.open('https://aigovernancevaluator.up.railway.app', '_blank')">
                             <div class="imagen-tarjeta">
                                 <img src="images/AIgovernance.png" alt="AI Governance Evaluator">
                             </div>
@@ -91,34 +93,18 @@
                                     <span>PHP</span>
                                     <span>Laravel</span>
                                     <span>Node.js</span>
+                                    <span>JavaScript</span>
+                                    <span>SQLServer</span>
                                     <span>React</span>
+                                    <span>Vite</span>
                                 </div>
-                                <a href="https://github.com/AIgobernance/Proyecto-Gestion" class="enlace-github"><i
+                                <a href="https://github.com/AIgobernance/Proyecto-Gestion" class="enlace-github"
+                                    target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"><i
                                         class="fa-brands fa-github"></i></a>
                             </div>
                         </div>
 
                         <!-- Proyecto 2 -->
-                        <div class="tarjeta-proyecto carrusel-item">
-                            <div class="imagen-tarjeta">
-                                <img src="images/BibliotecaVirt.png" alt="Biblioteca Virtual Personal">
-                            </div>
-                            <div class="contenido-tarjeta">
-                                <h3>Biblioteca virtual personal</h3>
-                                <p>Aplicación de escritorio en python manejando la creación de interfaces mediante
-                                    Tkinter,
-                                    que permite registrar y organizar libros leídos y pendientes de
-                                    lectura, mostrandolos en un catalogo y permitiendo exportar el archivo en CSV.</p>
-                                <div class="tags">
-                                    <span>Python</span>
-                                    <span>JSON</span>
-                                </div>
-                                <a href="https://github.com/StellAsh45/Biblioteca-Virtual-Personal"
-                                    class="enlace-github"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-
-                        <!-- Proyecto 3 -->
                         <div class="tarjeta-proyecto carrusel-item">
                             <div class="imagen-tarjeta">
                                 <img src="images/SalasComputo.png" alt="Administracion salas de Computo">
@@ -140,65 +126,72 @@
                             </div>
                         </div>
 
-                        <!-- Proyecto 4 (Copia de prueba) -->
-                        <div class="tarjeta-proyecto carrusel-item">
-                            <a href="#"></a>
+                        <!-- Proyecto 3 -->
+                        <div class="tarjeta-proyecto carrusel-item tarjeta-clickable"
+                            onclick="window.open('https://ecosmart-edu.vercel.app', '_blank')">
                             <div class="imagen-tarjeta">
-                                <img src="images/AIgovernance.png" alt="AI Governance Evaluator 2">
+                                <img src="images/EcoSmart.png" alt="EcoSmart">
                             </div>
                             <div class="contenido-tarjeta">
-                                <h3>AI Governance Evaluator (Copia 2)</h3>
-                                <p>Este es un proyecto de relleno para demostrar la funcionalidad del carrusel. Puedes
-                                    reemplazarlo con un proyecto real añadiendo su información aquí.</p>
+                                <h3>EcoSmart</h3>
+                                <p>Aplicativo web y móvil que permite a los estudiantes ingresar a cursos digitales con
+                                    el fin de fortalecer su conocimiento en cuanto a temas ambientales, al finalizar,
+                                    les permite generar un certificado
+                                    que compruebe los conocimientos adquiridos. Además, permite
+                                    a los administradores crear cursos para sus estudiantes con lecciones y exámenes
+                                    para que logren el respectivo aprendizaje.
+                                    Presenta un sistema de gamificación, orientado a gremios con el fin de
+                                    mantener la motivación del estudiante por aprender.</p>
                                 <div class="tags">
-                                    <span>PHP</span>
-                                    <span>React</span>
+                                    <span>Ionic</span>
+                                    <span>Angular</span>
+                                    <span>Tailwind</span>
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>TypeScript</span>
+                                    <span>Node.js</span>
+                                    <span>Firebase</span>
+                                    <span>Supabase</span>
+                                    <span>PostgreSQL</span>
                                 </div>
-                                <a href="#" class="enlace-github"><i class="fa-brands fa-github"></i></a>
+                                <a href="https://github.com/StellAsh45/EcoSmart" class="enlace-github" target="_blank"
+                                    rel="noopener noreferrer" onclick="event.stopPropagation()"><i
+                                        class="fa-brands fa-github"></i></a>
                             </div>
                         </div>
 
-                        <!-- Proyecto 5 (Copia de prueba) -->
+                        <!-- Proyecto 4 -->
                         <div class="tarjeta-proyecto carrusel-item">
                             <div class="imagen-tarjeta">
-                                <img src="images/BibliotecaVirt.png" alt="Biblioteca Virtual Personal 2">
+                                <img src="images/EcoSmartV2.png" alt="EcoSmart 2">
                             </div>
                             <div class="contenido-tarjeta">
-                                <h3>Biblioteca virtual personal (Copia 2)</h3>
-                                <p>Este es un proyecto de relleno para demostrar la funcionalidad del carrusel. Puedes
-                                    reemplazarlo con un proyecto real añadiendo su información aquí.</p>
+                                <h3>EcoSmart versión 2</h3>
+                                <p>Una versión similar a EcoSmart pero con otras tecnologias y menor funcionalidades.
+                                    Aplicativo web que permite a los estudiantes ingresar a cursos digitales con
+                                    el fin de fortalecer su conocimiento en cuanto a temas ambientales, al finalizar,
+                                    les permite generar un certificado que compruebe los conocimientos adquiridos.
+                                    Permite a los administradores crear cursos para los estudiantes y gestionar a los
+                                    usuarios</p>
                                 <div class="tags">
-                                    <span>Python</span>
-                                    <span>JSON</span>
-                                </div>
-                                <a href="#" class="enlace-github"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-
-                        <!-- Proyecto 6 (Copia de prueba) -->
-                        <div class="tarjeta-proyecto carrusel-item">
-                            <div class="imagen-tarjeta">
-                                <img src="images/SalasComputo.png" alt="Administracion salas de Computo 2">
-                            </div>
-                            <div class="contenido-tarjeta">
-                                <h3>Sistema de gestión de salas de cómputo (Copia 2)</h3>
-                                <p>Este es un proyecto de relleno para demostrar la funcionalidad del carrusel. Puedes
-                                    reemplazarlo con un proyecto real añadiendo su información aquí.</p>
-                                <div class="tags">
-                                    <span>C#</span>
+                                    <span>Tailwind</span>
+                                    <span>HTML</span>
+                                    <span>CSS</span>
                                     <span>JavaScript</span>
+                                    <span>TypeScript</span>
+                                    <span>MongoDB</span>
                                 </div>
-                                <a href="#" class="enlace-github"><i class="fa-brands fa-github"></i></a>
+                                <a href="https://github.com/StellAsh45/EcoSmartV2" class="enlace-github"><i
+                                        class="fa-brands fa-github"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <button class="carrusel-btn next-btn" id="btn-next"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
 
             <div class="carrusel-ver-mas-contenedor" id="contenedor-ver-mas"
-                style="text-align: center; margin-top: 30px;">
+                style="text-align: center; margin-top: 30px; margin-bottom: 50px;">
                 <a href="proyectos.html" class="btn btn-trabajo">Ver todos mis proyectos <i
                         class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
             </div>

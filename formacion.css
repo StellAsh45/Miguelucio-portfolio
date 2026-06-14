@@ -215,3 +215,64 @@
     color: var(--texto-principal);
     letter-spacing: 1px;
 }
+
+/* ============================================================
+   RESPONSIVE — TABLET (≤ 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+
+    .dividir-seccion {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .educacion,
+    .idiomas,
+    .experiencia {
+        width: 100%;
+    }
+
+    .habilidades {
+        padding: 20px 25px;
+    }
+
+    .tecnologias-matriz {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — MÓVIL (≤ 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+
+    .dividir-seccion {
+        gap: 20px;
+    }
+
+    .habilidades {
+        padding: 15px 15px;
+    }
+
+    .tecnologias-matriz {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .tarjeta-tecnologias {
+        padding: 20px 12px;
+    }
+
+    .icono-tecnologias {
+        font-size: 36px;
+    }
+
+    .nombre-tecnologia {
+        font-size: 14px;
+    }
+
+    .titulo-tecnologias {
+        font-size: 18px;
+    }
+}
